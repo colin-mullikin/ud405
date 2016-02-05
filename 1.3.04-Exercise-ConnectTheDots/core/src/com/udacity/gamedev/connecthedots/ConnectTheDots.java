@@ -54,6 +54,13 @@ public class ConnectTheDots extends ApplicationAdapter {
     private float[] vector2ArrayToFloatArray(Array<Vector2> dots) {
 
         float[] floatDots = new float[dots.size * 2];
+        int index = 0;
+        for (Vector2 vector2: dots) {
+            floatDots[index] = vector2.x;
+            index++;
+            floatDots[index] = vector2.y;
+            index++;
+        }
 
         return floatDots;
     }
@@ -81,11 +88,11 @@ public class ConnectTheDots extends ApplicationAdapter {
         spriteBatch.end();
 
         // TODO: Start a batch with Shapetype.Line
-
+        shapeRenderer.begin(ShapeType.Line);
         // TODO: Draw a polyline using the dot positions as a float array
-
+        shapeRenderer.polyline(floatDots);
         // TODO: End the batch
-
+        shapeRenderer.end();
 
     }
 }

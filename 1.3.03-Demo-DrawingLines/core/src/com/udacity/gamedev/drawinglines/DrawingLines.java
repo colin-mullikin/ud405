@@ -53,8 +53,8 @@ public class DrawingLines extends ApplicationAdapter {
         shapeRenderer.line(30, 0, 130, 100, Color.BLUE, Color.RED);
         // The last interesting thing we can do is draw a bunch of connected line segments using polyline
         // First we set up the list of vertices, where the even positions are x coordinates, and the odd positions are the y coordinates
-        float[] verticies = {100, 200, 300, 300, 200, 300, 300, 200};
-        shapeRenderer.polyline(verticies);
+        float[] vertices = {100, 200, 300, 300, 200, 300, 300, 200};
+        shapeRenderer.polyline(vertices);
         // Finally, as always, we end the batch
         shapeRenderer.end();
     }
