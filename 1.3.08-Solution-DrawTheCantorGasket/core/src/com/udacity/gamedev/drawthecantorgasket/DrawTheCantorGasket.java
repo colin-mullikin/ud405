@@ -48,32 +48,43 @@ public class DrawTheCantorGasket extends ApplicationAdapter {
         shapeRenderer.end();
     }
 
+    @Override
+    public void resize(int width, int height) {
+        shapeRenderer = new ShapeRenderer();
+    }
+
     private void punchCantorGasket(float x, float y, float size, int recursions) {
         // TODO: Base case, if recursions = 0, return
         if (recursions == 0) {
             return;
         }
-        // TODO: Draw a black square in the middle third
-        shapeRenderer.rect(x + size / 3, y + size / 3, size / 3, size / 3);
 
-        // TODO: Call punchCantorGasket on all the other thirds
-        float newSize = size / 3;
+        float newSize = size / 3f;
+        float newSize2 = newSize * 2;
 
-        punchCantorGasket(x, y, newSize, recursions - 1);
-        punchCantorGasket(x + newSize, y, newSize, recursions - 1);
-        punchCantorGasket(x + 2 * newSize, y, newSize, recursions - 1);
-        punchCantorGasket(x, y + newSize, newSize, recursions - 1);
-        punchCantorGasket(x + 2 * newSize, y + newSize, newSize, recursions - 1);
-        punchCantorGasket(x, y + 2 * newSize, newSize, recursions - 1);
-        punchCantorGasket(x + newSize, y + 2 * newSize, newSize, recursions - 1);
-        punchCantorGasket(x + 2 * newSize, y + 2 * newSize, newSize, recursions - 1);
+        // TODO: Draw a black square in the middle square
+        shapeRenderer.rect(x + newSize, y + newSize, newSize, newSize);
+
+        recursions--;
+
+        // TODO: Call punchCantorGasket on all 8 other squares
+        punchCantorGasket(x, y, newSize, recursions); // 0,0
+        punchCantorGasket(x, y + newSize, newSize, recursions); // 0,1
+        punchCantorGasket(x, y + newSize2, newSize, recursions); // 0,2
+
+        punchCantorGasket(x + newSize, y, newSize, recursions); // 1,0
+        punchCantorGasket(x + newSize, y + newSize2, newSize, recursions); // 1, 2
+
+        punchCantorGasket(x + newSize2, y, newSize, recursions); // 2,0
+        punchCantorGasket(x + newSize2, y + newSize, newSize, recursions); // 2,1
+        punchCantorGasket(x + newSize2, y + newSize2, newSize, recursions); // 2,2
 
         // Here's a more compact way to perform the recursive calls.
         // Thanks to GitHub user khafan! https://github.com/khafan
 
 //        for (int i = 0; i < 9; i++) {
 //            if (i == 4) continue;
-//            punchCantorGasket(i%3 * size/3 + x, i/3 * size/3 + y, size/3, recursions - 1);
+//            punchCantorGasket(i%3 * newSize + x, i/3 * newSize + y, newSize, recursions);
 //        }
     }
 
@@ -81,6 +92,8 @@ public class DrawTheCantorGasket extends ApplicationAdapter {
         Rectangle largestSquare = new Rectangle();
         float screenWidth = Gdx.graphics.getWidth();
         float screenHeight = Gdx.graphics.getHeight();
+
+        Gdx.app.log("Derp",  "Screen size " + screenWidth + " " + screenHeight);
 
         if (screenWidth > screenHeight) {
             largestSquare.x = (screenWidth - screenHeight) / 2;

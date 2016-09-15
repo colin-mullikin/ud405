@@ -22,6 +22,7 @@ public class Constants {
     public static final float ICICLES_WIDTH = 0.5f;
     public static final Vector2 ICICLES_ACCELERATION = new Vector2(0, -5.0f);
     public static final Color ICICLE_COLOR = Color.WHITE;
+    public static final int INITIAL_ICICLES_ARRAY_CAPACITY = 100;
 
     public static final float HUD_FONT_REFERENCE_SCREEN_SIZE = 480.0f;
     public static final float HUD_MARGIN = 20.0f;
@@ -45,6 +46,10 @@ public class Constants {
     public static final Vector2 EASY_CENTER = new Vector2(DIFFICULTY_WORLD_SIZE / 4, DIFFICULTY_WORLD_SIZE / 2);
     public static final Vector2 MEDIUM_CENTER = new Vector2(DIFFICULTY_WORLD_SIZE / 2, DIFFICULTY_WORLD_SIZE / 2);
     public static final Vector2 HARD_CENTER = new Vector2(DIFFICULTY_WORLD_SIZE * 3 / 4, DIFFICULTY_WORLD_SIZE / 2);
+    public static final String DIFFICULTY_LABEL = "Difficulty: ";
+    public static final String SCORE_LABEL = "Score: ";
+    public static final String DEATHS_LABEL = "Deaths: ";
+    public static final String TOP_SCORE_LABEL = "Top Score: ";
 
     public enum Difficulty {
         EASY(EASY_SPAWNS_PER_SECOND, EASY_LABEL),
@@ -59,4 +64,5 @@ public class Constants {
             this.label = label;
         }
     }
+
 }

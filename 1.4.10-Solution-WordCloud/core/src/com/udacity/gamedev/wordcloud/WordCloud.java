@@ -55,6 +55,12 @@ public class WordCloud extends ApplicationAdapter {
     @Override
     public void dispose() {
         batch.dispose();
+        font.dispose();
+    }
+
+    @Override
+    public void resize(int width, int height) {
+        batch = new SpriteBatch();
     }
 
     @Override
