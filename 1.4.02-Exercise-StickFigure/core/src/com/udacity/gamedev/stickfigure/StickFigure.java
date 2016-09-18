@@ -40,13 +40,18 @@ public class StickFigure extends ApplicationAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(Color.WHITE);
+        shapeRenderer.setColor(1,224f/255f,189/255f,1);
         shapeRenderer.circle(200f,250f,30f);
         shapeRenderer.rectLine(200f,100f,200f,250f,10f);
         shapeRenderer.rectLine(150f,150f,200f,200f,10f);
         shapeRenderer.rectLine(200f,200f,260f,235f,10f);
         shapeRenderer.rectLine(160f,40f,200f,110f,10f);
         shapeRenderer.rectLine(240f,40f,200f,110f,10f);
+        shapeRenderer.setColor(Color.CYAN);
+        shapeRenderer.circle(190f,260f,5f);
+        shapeRenderer.circle(210f,260f,5f);
+        shapeRenderer.setColor(Color.RED);
+        shapeRenderer.arc(200f,240f,10f,180f,180f);
         shapeRenderer.end();
 
     }
