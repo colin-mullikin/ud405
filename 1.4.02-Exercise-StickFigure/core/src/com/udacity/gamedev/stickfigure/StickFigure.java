@@ -53,6 +53,7 @@ public class StickFigure extends ApplicationAdapter {
         shapeRenderer.setColor(Color.RED);
         shapeRenderer.arc(200f,240f,10f,180f,180f);
         shapeRenderer.end();
+	//Comment for test commit
 
     }
 }
